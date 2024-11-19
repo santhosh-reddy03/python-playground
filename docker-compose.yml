@@ -1,0 +1,13 @@
+name: "sql_alchemy_orm"
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - /home/santhosh/docker/db:/var/lib/mysql
