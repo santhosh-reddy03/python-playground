@@ -34,9 +34,11 @@ jobs:
       run: |
         git tag ${{ steps.version.outputs.tag }} && git push --tags
     
-    # - name: create release notes
-    #   id: release_notes
-    #   run: |
-    #     echo "release notes" >> $GITHUB_OUTPUT
+    - name: create release notes
+      run: |
+        gh release create "${{ steps.version.outputs.tag }}" \
+          --repo="$GITHUB_REPOSITORY" \
+          --title="${{ steps.version.outputs.tag}}" \
+          --generate-notes
 
     
