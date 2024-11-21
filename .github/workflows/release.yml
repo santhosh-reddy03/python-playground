@@ -39,6 +39,7 @@ jobs:
         GH_TOKEN: ${{ github.token }}
       run: |
         gh release create "${{ steps.version.outputs.tag }}" \
+          --verify-tag \
           --repo="$GITHUB_REPOSITORY" \
           --title="${{ steps.version.outputs.tag}}" \
           --generate-notes
